@@ -134,11 +134,64 @@
 // let arr=[1,2,3,4,5,6];
 // arr.splice(2,2,22,33,44,55,66,77);
 
-let digit= 1;
-switch(digit){
-    case 1:
-        console.log("this is one");
-        break;
+// let digit= 1;
+// switch(digit){
+//     case 1:
+//         console.log("this is one");
+//         break;
 
+// }
+
+// function calcAge(age){
+    
+//     let year=2024-age;
+//     return year;
+//     // console.log(year);
+// }
+// function age(birthYear){
+//     let age=calcAge(birthYear)
+      
+// }
+// age(2009);
+
+// let years = [2002,2000,1999,1998,1997,1992];
+// for( let i=0;i<years.length;i++){
+//     console.log(calcAge(years[i]));
+// }
+// methods of array
+// let name = ['meet','madhav','rahul','raju'];
+// name.push('mahir');
+// name.unshift('jakky');
+// name.pop();
+// name.shift();
+// console.log(name.indexOf('raju'));
+// console.log(name.includes('raju'));
+
+
+// console.log(name);
+
+
+// calling function in object
+let meet = {
+    firstName : 'meet',
+    lastName :'mistry',
+    birthYear : 2002,
+    job : 'unemployed',
+    friends : ['madhav','nisarg','anand'],
+    driverLicence : true,
+
+    licence :function(){
+        if(this.driverLicence){
+            return `${this.firstName}has a drivers licence`;
+        }else{
+            return `${this.firstName}has not drivers licence`;
+        }
+    },
+    calcAge :function(){
+        // console.log(this);
+        this.age= 2024 - this.birthYear;
+        console.log(`Meet is ${this.age} - years old ${this.job} , ${this.licence()}`);
+
+    }
 }
-
+console.log(meet.calcAge());
