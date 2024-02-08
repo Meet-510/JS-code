@@ -1,4 +1,6 @@
-// console.log('hello mother fucker');
+"use strict";
+
+// console.log('hello mother ');
 // let a=5;
 // let b=7;
 // console.log(a+b);
@@ -8,13 +10,13 @@
 // a-=9;
 // console.log(a);
 
-// let number=prompt("enter the focking number");
+// let number=prompt("enter the number");
 // if(number%5===0){
-//     console.log("great bitches");
+//     console.log("great");
 
 // }
 // else{
-//     console.log("gand marao");
+//     console.log("greetings");
 // }
 
 // for(let i=1;i<=50;i++){
@@ -64,7 +66,7 @@
 //     }
 // }
 
-// game 
+// game
 // let gameNum = 69;
 // let usNum = prompt("baby please enter your pussy count:");
 // // console.log(usNum);
@@ -75,7 +77,7 @@
 //     console.log("entered in wrong hole");
 // }
 
-// game 
+// game
 
 // let gameNum = 69;
 // let user=prompt("nakh tari pikki");
@@ -87,7 +89,6 @@
 // Stringmetgods
 // let str = "ram ram bhaio";
 // console.log(str.replace("haio","H"));
-
 
 // let un  = prompt("enter the username:");
 // // let length = un.length;
@@ -143,14 +144,14 @@
 // }
 
 // function calcAge(age){
-    
+
 //     let year=2024-age;
 //     return year;
 //     // console.log(year);
 // }
 // function age(birthYear){
 //     let age=calcAge(birthYear)
-      
+
 // }
 // age(2009);
 
@@ -167,31 +168,68 @@
 // console.log(name.indexOf('raju'));
 // console.log(name.includes('raju'));
 
-
 // console.log(name);
 
-
 // calling function in object
-let meet = {
-    firstName : 'meet',
-    lastName :'mistry',
-    birthYear : 2002,
-    job : 'unemployed',
-    friends : ['madhav','nisarg','anand'],
-    driverLicence : true,
+// let meet = {
+//     firstName : 'meet',
+//     lastName :'mistry',
+//     birthYear : 2002,
+//     job : 'unemployed',
+//     friends : ['madhav','nisarg','anand'],
+//     driverLicence : true,
 
-    licence :function(){
-        if(this.driverLicence){
-            return `${this.firstName}has a drivers licence`;
-        }else{
-            return `${this.firstName}has not drivers licence`;
-        }
-    },
-    calcAge :function(){
-        // console.log(this);
-        this.age= 2024 - this.birthYear;
-        console.log(`Meet is ${this.age} - years old ${this.job} , ${this.licence()}`);
+//     licence :function(){
+//         if(this.driverLicence){
+//             return `${this.firstName}has a drivers licence`;
+//         }else{
+//             return `${this.firstName}has not drivers licence`;
+//         }
+//     },
+//     calcAge :function(){
+//         // console.log(this);
+//         this.age= 2024 - this.birthYear;
+//         console.log(`Meet is ${this.age} - years old ${this.job} , ${this.licence()}`);
 
+//     }
+// }
+// console.log(meet.calcAge());
+
+// let years = [2002,2006,2007,2000,1999];
+// let age = [];
+// for(let i=0;i<years.length;i++){
+//     //  age.push(2024 - years[i]);
+//     age[i]=2024- years[i];
+
+// }
+// console.log(age);
+
+// loop Elements in back || reverse looping
+
+// let back =[1,2,3,4,5,6,7,8];
+// console.log(back);
+
+// for(let i=back.length-1;i>=0;i--){
+//     console.log(back[i]);
+// }
+
+// maximum from array
+// let list = [2, 5, 7, 9, 4, 3, 6, 88, 7, 4];
+// let max;
+// for (i = 0; i < list.length; i++) {
+//   if (list[i] > max) {
+//     max = list[i];
+//   }
+//   console.log(max);
+// }
+
+function max(temp) {
+  let max1 = temp[0];
+  for (let i = 0; i < temp.length; i++) {
+    if (temp[i] > max1) {
+      max1 = temp[i];
     }
+  }
+  console.log(max1);
 }
-console.log(meet.calcAge());
+max([2, 5, 7, 9, 4, 3, 6, 88, 7, 4]);
