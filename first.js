@@ -236,49 +236,151 @@
 
 // spread operator
 // only works on ityerable : Strings Arrays Map Set NOT Objects
-let arr = [1, 2, 3, 4, 5];
-let newArr = [99, 88, 77, ...arr];
-console.log(arr, newArr);
-console.log(newArr[5]);
+// let arr = [1, 2, 3, 4, 5];
+// let newArr = [99, 88, 77, ...arr];
+// console.log(arr, newArr);
+// console.log(newArr[5]);
 
-let names = ["meet", "raju", "shyam", "piki", "meetiii"];
-console.log(...names);
+// let names = ["meet", "raju", "shyam", "piki", "meetiii"];
+// console.log(...names);
 
-let my = "meet";
-let her = "sofy";
-let merge = [...my, ...her];
-console.log(...merge);
+// let my = "meet";
+// let her = "sofy";
+// let merge = [...my, ...her];
+// console.log(...merge);
 
-// REST operator works opposite of spread operator
-// if you want any number of parameters then we can use REST
+// // REST operator works opposite of spread operator
+// // if you want any number of parameters then we can use REST
 
-let [a, b, ...others] = [1, 2, 3, 4, 5];
-console.log(others);
+// let [a, b, ...others] = [1, 2, 3, 4, 5];
+// console.log(others);
 
-let funNew = function (...numbers) {
-  let digit = 0;
-  for (let i = 0; i < numbers.length; i++) {
-    digit = digit + numbers[i];
-  }
-  console.log(digit);
-};
-funNew(1, 2, 3);
-funNew(44, 55, 66, 77, 88, 44);
-funNew(8);
+// let funNew = function (...numbers) {
+//   let digit = 0;
+//   for (let i = 0; i < numbers.length; i++) {
+//     digit = digit + numbers[i];
+//   }
+//   console.log(digit);
+// };
+// funNew(1, 2, 3);
+// funNew(44, 55, 66, 77, 88, 44);
+// funNew(8);
 
-// passing array into function with help of spread and rest operators
-let x = [1, 2, 77, 88, 33, 123468];
-funNew(...x);
+// // passing array into function with help of spread and rest operators
+// let x = [1, 2, 77, 88, 33, 123468];
+// funNew(...x);
 
-let rest1 = {
-  name: "panjab da tadka",
-  ownerName: "raju babu",
-};
-let rest2 = {
-  name: "ShreeNathjii",
-  customers: 200,
-};
-rest1.customers = rest1.customers || 6969;
-rest2.customers = rest2.customers || 6969;
-console.log(rest1);
-console.log(rest2);
+// let rest1 = {
+//   name: "panjab da tadka",
+//   ownerName: "raju babu",
+// };
+// let rest2 = {
+//   name: "ShreeNathjii",
+//   customers: 200,
+// };
+// rest1.customers = rest1.customers || 6969;
+// rest2.customers = rest2.customers || 6969;
+// console.log(rest1);
+// console.log(rest2);
+
+// 20-2-24
+// let restaurant = {
+//   name: "panjab da tadka",
+//   location: "Shakto Society Dholka",
+//   category: ["italian", "Gujarati", "punjabi", "south indian"],
+//   starterMenu: ["manchurian", "kabab", "soup"],
+//   mainMenu: ["lentils", "Indian bread", "vegitable curry", "curd"],
+//   order: function (starterIndex, mainIndex) {
+//     return [this.starterMenu[starterIndex], this.mainMenu[mainIndex]];
+//   },
+//   openigHours: {
+//     thu: {
+//       open: 10,
+//       close: 10,
+//     },
+//     fri: {
+//       open: 11,
+//       close: 12,
+//     },
+//     sat: {
+//       open: 99,
+//       close: 89,
+//     },
+//   },
+//   orderDelivery: function ({ starterIndex, mainIndex, time, address }) {
+//     console.log(
+//       `Order received !! ${this.starterMenu[starterIndex]} and ${this.mainMenu[mainIndex]} will be deliverd to ${address} at ${time}`
+//     );
+//   },
+//   oredrPasta: function (ing1, ing2, ing3) {
+//     console.log(`Here is you's pasta with ${ing1} , ${ing2} and ${ing3}`);
+//   },
+//   // for the use of REST and SPREAD properties
+//   orderPunjabi: function (mainItem, ...otherItems) {
+//     console.log("here is the main food", mainItem);
+//     console.log("rest order is this ", ...otherItems);
+//   },
+// };
+
+// let menu = [...restaurant.starterMenu, ...restaurant.mainMenu];
+// for (let i of menu.entries()) {
+//   console.log(i);
+// }
+
+// for (let day of Object.keys(restaurant.openigHours)) {
+//   console.log(day);
+// }
+// let properties = Object.keys(restaurant.openigHours);
+// console.log(properties);
+
+// let str = `we are open at `;
+
+// for (let i of Object.keys(restaurant.openigHours)) {
+//   str = str + `${i} `;
+// }
+// console.log(str);
+
+// let entries = Object.entries(restaurant.openigHours);
+
+// for (let [key, { open, close }] of entries) {
+//   console.log(`on ${key}, we open at ${open} and close at ${close} .`);
+// }
+
+// sets 20 2 24 best use of SET is to remove duplicate from Array
+
+// let sets = new Set([2, 3, "raju", "meet", 56, 7, 8, 8]);
+// console.log(sets);
+// console.log(sets.size);
+// console.log(sets.has(0));
+// sets.add("sunny leone", "rehu");
+// console.log(sets);
+// sets.delete("sunny leone");
+
+// // best use of SET is to remove duplicate from Array
+// let hotel = ["waiter", "customer", "waiter", "manager", "security", "waiter"];
+// let hotelSet = [...new Set(hotel)];
+// console.log(hotel, hotelSet);
+
+// let str = "meet mistry";
+// console.log(...str);
+
+// maps 20 2 24
+
+let rest = new Map();
+rest.set("name", "Punjab Da Tadka");
+rest.set("Genre", "Family Resto");
+rest.set(1, "Malav Talab");
+rest.set(2, "Chikli talab");
+console.log(rest);
+rest
+  .set("mainMenu", ["lentils", "Indian bread", "vegitable curry", "curd"])
+  .set("open", 11)
+  .set("close", 18)
+  .set(true, "We are open :)")
+  .set(false, "We are closed :(");
+console.log(rest);
+// console.log(rest.get(true));
+
+const time = 19;
+console.log(rest.get(time > rest.get("open") && time < rest.get("close")));
+rest.set(document.querySelector("h1"), "heading");

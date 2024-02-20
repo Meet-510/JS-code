@@ -18,5 +18,3 @@ Welcome to the JavaScript Concepts and Daily Practice Code repository! This repo
 
 THE FIRST.JS file contains all the basic to advance level concepts of javaScript.
 And Challenge files contains real world applications of js.
-
-Happy coding! 🚀
