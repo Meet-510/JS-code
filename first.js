@@ -223,13 +223,62 @@
 //   console.log(max);
 // }
 
-function max(temp) {
-  let max1 = temp[0];
-  for (let i = 0; i < temp.length; i++) {
-    if (temp[i] > max1) {
-      max1 = temp[i];
-    }
+// function max(temp) {
+//   let max1 = temp[0];
+//   for (let i = 0; i < temp.length; i++) {
+//     if (temp[i] > max1) {
+//       max1 = temp[i];
+//     }
+//   }
+//   console.log(max1);
+// }
+// max([2, 5, 7, 9, 4, 3, 6, 88, 7, 4]);
+
+// spread operator
+// only works on ityerable : Strings Arrays Map Set NOT Objects
+let arr = [1, 2, 3, 4, 5];
+let newArr = [99, 88, 77, ...arr];
+console.log(arr, newArr);
+console.log(newArr[5]);
+
+let names = ["meet", "raju", "shyam", "piki", "meetiii"];
+console.log(...names);
+
+let my = "meet";
+let her = "sofy";
+let merge = [...my, ...her];
+console.log(...merge);
+
+// REST operator works opposite of spread operator
+// if you want any number of parameters then we can use REST
+
+let [a, b, ...others] = [1, 2, 3, 4, 5];
+console.log(others);
+
+let funNew = function (...numbers) {
+  let digit = 0;
+  for (let i = 0; i < numbers.length; i++) {
+    digit = digit + numbers[i];
   }
-  console.log(max1);
-}
-max([2, 5, 7, 9, 4, 3, 6, 88, 7, 4]);
+  console.log(digit);
+};
+funNew(1, 2, 3);
+funNew(44, 55, 66, 77, 88, 44);
+funNew(8);
+
+// passing array into function with help of spread and rest operators
+let x = [1, 2, 77, 88, 33, 123468];
+funNew(...x);
+
+let rest1 = {
+  name: "panjab da tadka",
+  ownerName: "raju babu",
+};
+let rest2 = {
+  name: "ShreeNathjii",
+  customers: 200,
+};
+rest1.customers = rest1.customers || 6969;
+rest2.customers = rest2.customers || 6969;
+console.log(rest1);
+console.log(rest2);

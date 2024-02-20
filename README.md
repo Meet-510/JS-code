@@ -16,4 +16,7 @@ Welcome to the JavaScript Concepts and Daily Practice Code repository! This repo
 
 - **Daily Practice**: In this directory, you'll find my daily practice code snippets. These snippets cover a wide range of topics and are designed to reinforce my understanding of JavaScript and improve my coding skills.
 
+THE FIRST.JS file contains all the basic to advance level concepts of javaScript.
+And Challenge files contains real world applications of js.
+
 Happy coding! 🚀

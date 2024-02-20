@@ -30,7 +30,23 @@ let restaurant = {
       `Order received !! ${this.starterMenu[starterIndex]} and ${this.mainMenu[mainIndex]} will be deliverd to ${address} at ${time}`
     );
   },
+  oredrPasta: function (ing1, ing2, ing3) {
+    console.log(`Here is you's pasta with ${ing1} , ${ing2} and ${ing3}`);
+  },
+  // for the use of REST and SPREAD properties
+  orderPunjabi: function (mainItem, ...otherItems) {
+    console.log("here is the main food", mainItem);
+    console.log("rest order is this ", ...otherItems);
+  },
 };
+
+restaurant.orderPunjabi(
+  "paneer buttur masala",
+  "chees naan",
+  "mix veg",
+  "gobi manchurian",
+  "papad"
+);
 
 restaurant.orderDelivery({
   time: "22:00",
@@ -79,3 +95,17 @@ let {
   fri: { open, close },
 } = openigHours;
 console.log(open, close);
+
+// use of spread operator
+
+let newAdded = [...restaurant.mainMenu, "dal", "bhaat", "kadi", "khichdi"];
+console.log(newAdded);
+
+// lets make array for passinf into orderPasta funct
+
+let pasta = [
+  prompt("let's make pasta !! Enter ingrediant 1"),
+  prompt("Enter ingrediant 2"),
+  prompt("Enter ingrediant 3"),
+];
+restaurant.oredrPasta(...pasta);
