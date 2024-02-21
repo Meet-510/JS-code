@@ -77,7 +77,7 @@
 //     console.log("entered in wrong hole");
 // }
 
-// game
+// game////////////////////////////////////////////////////////////////////////////
 
 // let gameNum = 69;
 // let user=prompt("nakh tari pikki");
@@ -283,6 +283,7 @@
 // console.log(rest1);
 // console.log(rest2);
 
+////////////////////////////////////////////////////////////////////////////
 // 20-2-24
 // let restaurant = {
 //   name: "panjab da tadka",
@@ -364,23 +365,71 @@
 // let str = "meet mistry";
 // console.log(...str);
 
-// maps 20 2 24
+////////////////////////////////////////////////////////////////////////////
+// // maps 20 2 24
 
-let rest = new Map();
-rest.set("name", "Punjab Da Tadka");
-rest.set("Genre", "Family Resto");
-rest.set(1, "Malav Talab");
-rest.set(2, "Chikli talab");
-console.log(rest);
-rest
-  .set("mainMenu", ["lentils", "Indian bread", "vegitable curry", "curd"])
-  .set("open", 11)
-  .set("close", 18)
-  .set(true, "We are open :)")
-  .set(false, "We are closed :(");
-console.log(rest);
-// console.log(rest.get(true));
+// let rest = new Map();
+// rest.set("name", "Punjab Da Tadka");
+// rest.set("Genre", "Family Resto");
+// rest.set(1, "Malav Talab");
+// rest.set(2, "Chikli talab");
+// console.log(rest);
+// rest
+//   .set("mainMenu", ["lentils", "Indian bread", "vegitable curry", "curd"])
+//   .set("open", 11)
+//   .set("close", 18)
+//   .set(true, "We are open :)")
+//   .set(false, "We are closed :(");
+// console.log(rest);
+// // console.log(rest.get(true));
 
-const time = 19;
-console.log(rest.get(time > rest.get("open") && time < rest.get("close")));
-rest.set(document.querySelector("h1"), "heading");
+// const time = 19;
+// console.log(rest.get(time > rest.get("open") && time < rest.get("close")));
+// rest.set(document.querySelector("h1"), "heading");
+
+// Working with String 21-2-24 ////////////////////////////////////////////////////////////////////////////
+
+// let str = "meet Mistry";
+// let add = "shakti Society , Maghiya ROAD";
+// let newS = add.split(",");
+// console.log(newS);
+// let me = ["Mr.", str.toLowerCase(), add.toLowerCase()].join(" ");
+// console.log(me);
+
+// let debit = function (numb) {
+//   let num = String(numb);
+//   let newNum = num.slice(-4);
+//   let pad = newNum.padStart(num.length, "$");
+//   console.log(pad);
+// };
+// debit(12345678);
+
+// let planeFN = function (n) {
+//   console.log(
+//     `Owing to bad weather there are ${n} planes are waiting ${"✈️".repeat(n)}`
+//   );
+// };
+// planeFN(6);
+// planeFN(9);
+
+// 21-2-24//////////////////////////////////////////////////////////////////////////
+// String
+///////////////////////////////////////
+// String Methods Practice
+
+// 🔴 Delayed Departure from FAO to TXL (11h25)
+//              Arrival from BRU to FAO (11h45)
+//   🔴 Delayed Arrival from HEL to FAO (12h05)
+//            Departure from FAO to LIS (12h30)
+
+const flights =
+  "_Delayed_Departure;fao93766109;txl2133758440;11:25+_Arrival;bru0943384722;fao93766109;11:45+_Delayed_Arrival;hel7439299980;fao93766109;12:05+_Departure;fao93766109;lis2323639855;12:30";
+
+for (let str of flights.split("+")) {
+  let [type, fromm, to, time] = str.split(";");
+  let output = ` ${type.startsWith("_Delayed") ? "🔴" : " "} 
+  ${type.replaceAll("_", " ")} from  ${fromm.slice(0, 3).toUpperCase()}  to ${to
+    .slice(0, 3)
+    .toUpperCase()} (${time.replace(":", "h")}) `;
+  console.log(output);
+}
