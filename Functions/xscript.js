@@ -71,47 +71,70 @@
 ////////////////////////////////////////////////////////////////////////////
 // The call and apply Methods , used for manipulating this keyword (⌒▽⌒)
 
-let airIndia = {
-  airline: "AirIndia",
-  iatacode: "AI",
-  booking: [],
-  book: function (flightNumber, name) {
-    console.log(
-      `${name} booked a seat on ${this.airline} flight ${this.iatacode}${flightNumber}`
-    );
-    this.booking.push({ flight: `${this.iatacode}${flightNumber}`, name });
-  },
+// let airIndia = {
+//   airline: "AirIndia",
+//   iatacode: "AI",
+//   booking: [],
+//   book: function (flightNumber, name) {
+//     console.log(
+//       `${name} booked a seat on ${this.airline} flight ${this.iatacode}${flightNumber}`
+//     );
+//     this.booking.push({ flight: `${this.iatacode}${flightNumber}`, name });
+//   },
+// };
+// airIndia.book(222, "Meet Mistry");
+
+// let vistara = {
+//   airline: "AirVistara",
+//   iatacode: "AV",
+//   booking: [],
+// };
+
+// let book = airIndia.book;
+// // call methods
+// book.call(vistara, 23, "vaibhav Mistry");
+// book.call(airIndia, 99, "Madhav Trivedi");
+
+// // apply methods
+// let flightData = [589, "Meet"];
+// book.apply(vistara, flightData);
+// book.call(vistara, ...flightData);
+
+// // The bind Method
+// let bookAV = book.bind(vistara);
+// bookAV(69, "Sunny Leone");
+// let bookAI = book.bind(airIndia);
+// bookAI(6969, "Johnny sins");
+
+// // with event handlers
+// airIndia.planes = 200;
+// airIndia.buyPlane = function () {
+//   this.planes++;
+//   console.log(this.planes);
+// };
+// document
+//   .querySelector(".buy")
+//   .addEventListener("click", airIndia.buyPlane.bind(airIndia));
+
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+// 22-2-24 Immediately Invoked Function Expressions (IIFE)
+let runOnce = function () {
+  console.log("this will only run once");
 };
-airIndia.book(222, "Meet Mistry");
+runOnce();
 
-let vistara = {
-  airline: "AirVistara",
-  iatacode: "AV",
-  booking: [],
-};
+(function () {
+  console.log("This will immediately call");
+})();
 
-let book = airIndia.book;
-// call methods
-book.call(vistara, 23, "vaibhav Mistry");
-book.call(airIndia, 99, "Madhav Trivedi");
+// (); This will  never run again
 
-// apply methods
-let flightData = [589, "Meet"];
-book.apply(vistara, flightData);
-book.call(vistara, ...flightData);
+(function () {
+  const header = document.querySelector("h1");
+  header.style.color = "red";
 
-// The bind Method
-let bookAV = book.bind(vistara);
-bookAV(69, "Sunny Leone");
-let bookAI = book.bind(airIndia);
-bookAI(6969, "Johnny sins");
-
-// with event handlers
-airIndia.planes = 200;
-airIndia.buyPlane = function () {
-  this.planes++;
-  console.log(this.planes);
-};
-document
-  .querySelector(".buy")
-  .addEventListener("click", airIndia.buyPlane.bind(airIndia));
+  document.querySelector("body").addEventListener("click", function () {
+    header.style.color = "blue";
+  });
+})();
