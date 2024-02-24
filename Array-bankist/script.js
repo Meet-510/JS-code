@@ -134,3 +134,50 @@ let displayMovements = function (movements) {
   });
 };
 displayMovements(account1.movements);
+
+// map mathod is like forEach method but its return new Array
+let movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+
+// lets convert this euros into us dollar
+const eurToUsd = 1.1;
+const momentsToUsd = movements.map(function (mov) {
+  return Math.trunc(mov * eurToUsd);
+  //   return mov;
+});
+console.log(momentsToUsd);
+console.log(movements);
+
+// now lets make new same array with the help of for of loop
+
+// let newArry = [];
+// for (let mov of movements) {
+//   newArry.push(mov * eurToUsd);
+// }
+// console.log(newArry);
+
+let movementsDescription = movements.map(function (mov, i, arr) {
+  if (mov > 0) {
+    return `Movement ${i + 1}: You deposited ${Math.abs(mov)}`;
+  } else {
+    return `Movement ${i + 1}: You withdrew ${Math.abs(mov)}`;
+  }
+});
+console.log(movementsDescription);
+
+///////////////////////////////////////////////////////////////////////////
+// computing usernames
+const createUserName = function (accs) {
+  accs.forEach(function (acc) {
+    acc.username = acc.owner
+      .toLowerCase()
+      .split(" ")
+      .map(function (name) {
+        return name[0];
+      })
+      .join("");
+  });
+};
+createUserName(accounts);
+console.log(accounts);
+// console.log(createUserName("Meet Vijaybhai Mistry"));
+// jyare pn tme return karta hov to call karela function ne tamare log karavo pdse
