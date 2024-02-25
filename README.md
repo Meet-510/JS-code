@@ -52,4 +52,4 @@ Bankist is built using the following technologies:
 ## Credits
 
 This project is inspired by the array methods learning module from a Udemy course. Special thanks to the instructors and contributors for their guidance and support during the learning process.
-![alt text](image-1.png)
+![Model](Array-bankist/1.png)
