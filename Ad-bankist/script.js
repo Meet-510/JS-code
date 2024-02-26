@@ -222,13 +222,78 @@ nav.addEventListener('mouseout', function (e) {
 // });
 
 // sticky navigation
-let initialCoords = section1.getBoundingClientRect();
-console.log(initialCoords);
-window.addEventListener('scroll', function () {
-  // console.log(window.scrollY);
-  if (window.scrollY > initialCoords.top) {
+
+// let initialCoords = section1.getBoundingClientRect();
+// console.log(initialCoords);
+// window.addEventListener('scroll', function () {
+//   // console.log(window.scrollY);
+//   if (window.scrollY > initialCoords.top) {
+//     nav.classList.add('sticky');
+//   } else {
+//     nav.classList.remove('sticky');
+//   }
+// });
+
+// sticky navigation: intersection observer
+
+const header = document.querySelector('.header');
+
+const stickyNav = function (entries) {
+  const [entry] = entries;
+  console.log(entry);
+  if (!entry.isIntersecting) {
     nav.classList.add('sticky');
   } else {
     nav.classList.remove('sticky');
   }
+};
+
+const headerObserver = new IntersectionObserver(stickyNav, {
+  root: null,
+  threshold: 0,
+  rootMargin: '-90px',
+});
+headerObserver.observe(header);
+
+// reveal sections
+const allSection = document.querySelectorAll('.section');
+
+const revealSection = function (entries, observer) {
+  const [entry] = entries;
+  console.log(entry);
+  if (entry.isIntersecting) {
+    entry.target.classList.remove('section--hidden');
+  } else {
+    entry.target.classList.add('section--hidden');
+  }
+};
+
+const sectionObserver = new IntersectionObserver(revealSection, {
+  root: null,
+  threshold: 0.3,
+});
+
+allSection.forEach(function (section) {
+  sectionObserver.observe(section);
+  section.classList.add('section--hidden');
+});
+
+// lazy loading images
+let imgTargets = document.querySelectorAll('img[data-src');
+
+let loadimg = function (entries, observer) {
+  let [entry] = entries;
+  if (entry.isIntersecting) return;
+
+  // replace src with data-src
+  entry.target.src = entry.target.dataset.src;
+};
+
+let imgObserver = new IntersectionObserver(loadimg, {
+  root: null,
+  threshold: 0,
+});
+
+imgTargets.forEach(function (img) {
+  imgObserver.observe(img);
 });
