@@ -228,49 +228,146 @@
 
 // CLASS INHERITANCE///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-class PersonCl {
-  constructor(firstName, birthYear) {
-    this.firstName = firstName;
-    this.birthYear = birthYear;
+// class PersonCl {
+//   constructor(firstName, birthYear) {
+//     this.firstName = firstName;
+//     this.birthYear = birthYear;
+//   }
+//   calcAge() {
+//     console.log(2024 - this.birthYear);
+//   }
+//   greet() {
+//     console.log(`Hey ${this.firstName}`);
+//   }
+//   get age() {
+//     return 2024 - this.birthYear;
+//   }
+//   set fullName(name) {
+//     if (name.includes(" ")) this._fullName = name;
+//     else alert(`${name} is not a fill name`);
+//   }
+//   get fullName() {
+//     return this._fullName;
+//   }
+// }
+
+// class StudentCl extends PersonCl {
+//   constructor(firstName, birthYear, course) {
+//     super(firstName, birthYear);
+//     this.course = course;
+//   }
+//   intro() {
+//     console.log(
+//       ` Hey, my name is ${this.firstName} and i study ${this.course} `
+//     );
+//   }
+//   calcAge() {
+//     console.log(5555 - this.birthYear);
+//   }
+// }
+// let martha = new StudentCl("Martha Mistry", 2000, "C S");
+// console.log(martha);
+// martha.fullName;
+// // console.log(martha.fullName)
+// martha.intro();
+// martha.greet();
+// martha.calcAge();
+
+// OBJECT INHERITANCE///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// const PersonProto = {
+//   init(firstname, birthYear) {
+//     this.firstName = firstname;
+//     this.birthYear = birthYear;
+//   },
+//   calcAge() {
+//     console.log(2024 - this.birthYear);
+//   },
+// };
+// // let meet = Object.create(PersonProto);
+// // meet.init("meet", 999);
+// // console.log(meet);
+
+// const StudentProto = Object.create(PersonProto);
+// StudentProto.init.call = function (firstName, birthYear, course) {
+//   PersonProto.init.call(this, firstName, birthYear, course);
+//   this.course = course;
+// };
+
+// StudentProto.courseName = function () {
+//   console.log(this.birthYear);
+// };
+// const student1 = Object.create(StudentProto);
+// student1.init("meet", 9999, "c s");
+// console.log(student1);
+
+// const Person = function (firstName, birthYear) {
+//   this.firstName = firstName;
+//   this.birthYear = birthYear;
+// };
+// Person.prototype.calcAge = function () {
+//   console.log(2024 - this.birthYear);
+// };
+
+// const Student = function (firstName, birthYear, course) {
+//   Person.call(this, firstName, birthYear);
+//   this.course = course;
+// };
+
+// Student.prototype.intro = function () {
+//   console.log(
+//     `Hey there ..... My name is ${this.firstName} and my course is ${this.birthYear}`
+//   );
+// };
+// let meet = new Student("meet", 2002, "cs");
+// meet.intro();
+
+// let Person = {
+//   calcAge() {
+//     console.log(2024 - this.birthYear);
+//   },
+//   init(firstName, birthYear) {
+//     this.firstName = firstName;
+//     this.birthYear = birthYear;
+//   },
+// };
+
+// let StudentProto = Object.create(Person);
+// StudentProto.intro = function (firstName, birthYear, course) {
+//   Person.init.call(this, firstName, birthYear);
+//   this.course = course;
+// };
+
+// StudentProto.hello = function () {
+//   console.log(
+//     `Helloo bhaio, maru nam ${this.firstName} che , ane maro course ${
+//       this.course
+//     } che , mari umar ${2024 - this.birthYear}`
+//   );
+// };
+
+// let student1 = Object.create(StudentProto);
+// student1.init("meet", 2000, "CE");
+// student1.hello();
+// student1.intro();
+
+class acc {
+  constructor(owner, currency, pin) {
+    this.owner = owner;
+    this.currency = currency;
+    this.pin = pin;
+    this.movements = [];
+    this.locale = navigator.language;
   }
-  calcAge() {
-    console.log(2024 - this.birthYear);
+  deposite(val) {
+    this.movements.push(val);
   }
-  greet() {
-    console.log(`Hey ${this.firstName}`);
-  }
-  get age() {
-    return 2024 - this.birthYear;
-  }
-  set fullName(name) {
-    if (name.includes(" ")) this._fullName = name;
-    else alert(`${name} is not a fill name`);
-  }
-  get fullName() {
-    return this._fullName;
+  withdraw(val) {
+    this.deposite(-val);
   }
 }
-
-class StudentCl extends PersonCl {
-  constructor(firstName, birthYear, course) {
-    super(firstName, birthYear);
-    this.course = course;
-  }
-  intro() {
-    console.log(
-      ` Hey, my name is ${this.firstName} and i study ${this.course} `
-    );
-  }
-  calcAge() {
-    console.log(5555 - this.birthYear);
-  }
-}
-let martha = new StudentCl("Martha Mistry", 2000, "C S");
-console.log(martha);
-martha.fullName;
-// console.log(martha.fullName)
-martha.intro();
-martha.greet();
-martha.calcAge();
-
-// CLASS INHERITANCE///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+let acc1 = new acc("meet", "rup", 69);
+acc1.deposite(69);
+acc1.deposite(999);
+acc1.deposite(6912);
+acc1.deposite(223);
+acc1.withdraw(555);
