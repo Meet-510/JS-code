@@ -82,24 +82,24 @@
 // const btn = document.querySelector(".btn-country");
 // const countriesContainer = document.querySelector(".countries");
 
-// const renderCountry = function (data) {
-//   const html = `
-// <article class="country">
-//   <img class="country__img" src="${data.flags.png}" />
-//   <div class="country__data">
-//     <h3 class="country__name">${data.name.common}</h3>
-//     <h4 class="country__region">${data.region}</h4>
-//     <p class="country__row"><span>👫</span>${(
-//       +data.population / 1000000
-//     ).toFixed(1)} people</p>
-//     <p class="country__row"><span>🗣️</span>${data.languages.eng}</p>
-//     <p class="country__row"><span>💰</span>${data.currencies.INR.name}</p>
-//   </div>
-// </article>
-// `;
-//   countriesContainer.insertAdjacentHTML("beforeend", html);
-//   countriesContainer.style.opacity = 1;
-// };
+const renderCountry = function (data) {
+  const html = `
+<article class="country">
+  <img class="country__img" src="${data.flags.png}" />
+  <div class="country__data">
+    <h3 class="country__name">${data.name}</h3>
+    <h4 class="country__region">${data.region}</h4>
+    <p class="country__row"><span>👫</span>${(
+      +data.population / 1000000
+    ).toFixed(1)} people</p>
+    <p class="country__row"><span>🗣️</span>${data.languages.eng}</p>
+    <p class="country__row"><span>💰</span>${data.currencies.INR.name}</p>
+  </div>
+</article>
+`;
+  countriesContainer.insertAdjacentHTML("beforeend", html);
+  countriesContainer.style.opacity = 1;
+};
 
 // let getCountryData = function (data) {
 //   fetch(`https://restcountries.com/v3.1/name/${data}`)
@@ -140,13 +140,106 @@
 // challenge 1
 // reverse geocoding
 
-const whereAmI = function (lat, lng) {
-  fetch(`https://geocode.xyz/${lat},${lng}?json=1`)
-    .then(function (res) {
-      return res.json();
-    })
-    .then(function (data) {
-      console.log(data);
-    });
+// const whereAmI = function (lat, lng) {
+//   fetch(`https://geocode.xyz/${lat},${lng}?json=1`)
+//     .then(function (res) {
+//       return res.json();
+//     })
+//     .then(function (data) {
+//       console.log(data);
+//     });
+// };
+// whereAmI(23.033863, 72.585022);
+
+// const lotteryPromise = new Promise(function (resolve, reject) {
+//   console.log("Lottery draw is happening");
+//   setTimeout(function () {
+//     if (Math.random() >= 0.5) {
+//       resolve(`You WIN😒😒`);
+//     } else {
+//       reject(new Error(`You lost your money`));
+//     }
+//   }, 2000);
+// });
+// lotteryPromise
+//   .then(function (res) {
+//     console.log(res);
+//   })
+//   .catch(function (err) {
+//     console.log(err);
+//   });
+
+// const wait = function (seconds) {
+//   return new Promise(function (resolve) {
+//     setTimeout(resolve, seconds * 1000);
+//   });
+// };
+// wait(2)
+//   .then(() => {
+//     console.log(`i waited for 2 Second`);
+//     return wait(1);
+//   })
+//   .then(() => console.log(" i waited for 1 second"));
+
+// navigator.geolocation.getCurrentPosition(
+//   (position) => console.log(position),
+//   (err) => console.error(err)
+// );
+// console.log("Getting Position");
+
+// const wait = function (seconds) {
+//   return new Promise(function (resolve) {
+//     setTimeout(resolve, seconds * 1000);
+//   });
+// };
+
+// const imgContainer = document.querySelector(".images");
+
+// let cerateImage = function (imgPath) {
+//   return new Promise(function (resolve, reject) {
+//     const img = document.createElement("img");
+//     img.src = imgPath;
+//     img.addEventListener("load", function () {
+//       imgContainer.append(img);
+//       resolve(img);
+//     });
+//     img.addEventListener("error", function () {
+//       reject(new Error("image not found"));
+//     });
+//   });
+// };
+// let currentImage;
+// cerateImage("img-1.jpg")
+//   .then((img) => {
+//     currentImage = img;
+//     console.log("img 1 loaded");
+//     return wait(3);
+//   })
+//   .then(() => {
+//     currentImage.style.display = "none";
+//     return cerateImage("img-2.jpg");
+//   })
+//   .then((img) => {
+//     currentImage = img;
+//     console.log("img 2 loaded");
+//     return wait(2);
+//   })
+//   .then(() => {
+//     currentImage.style.display = "none";
+//     return cerateImage("img-3.jpg");
+//   })
+//   .then((img) => {
+//     currentImage = img;
+//     console.log("img 3loaded");
+//     return wait(2);
+//   })
+//   .catch((err) => console.error(err));
+
+const whereAmI = async function (country) {
+  const res = await fetch(`https://restcountries.com/v3.1/name/${country}`);
+  const data = await res.json();
+  console.log(data);
+  renderCountry(data[0]);
 };
-whereAmI(23.033863, 72.585022);
+whereAmI("usa");
+console.log("first");
