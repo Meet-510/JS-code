@@ -61,3 +61,18 @@ const ageOfAltron = function (birthYear) {
   return 2024 - birthYear;
 };
 console.log(ageOfAltron(2000));
+
+// arrow function
+
+const calcAge2 = (birthYear) => 2024 - birthYear;
+const age3 = calcAge2(1990);
+console.log(age3);
+
+const yearsUntilRetirement = (birthYear, firstName) => {
+  const age4 = 2024 - birthYear;
+  const retirement = 65 - age4;
+  // return retirement;
+  return `${firstName} retires in ${retirement}`;
+};
+
+console.log(yearsUntilRetirement(2002, "Meet"));
